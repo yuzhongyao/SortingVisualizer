@@ -1,0 +1,84 @@
+package SortingAlgorithms;
+
+public class SortingAlgorithms {
+
+	/**
+	 * Quicksort sorting algorithm which randomly selects a pivot point
+	 * and partitions the left side of the array to contain all integers less than
+	 * it and the right side of the array to contain all integers greater than it.
+	 * @param a  array
+	 * @param low  first index
+	 * @param high  last index
+	 */
+	public static void quicksort(int[] a, int low, int high) {
+		int size = a.length;
+		
+		//already sorted
+		if(size < 2)
+			return;
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public static void mergesort() {
+		
+		
+		
+		
+	}
+	
+	
+	public static void insertionsort() {
+		
+		
+		
+		
+	}
+	
+	
+	public static void selectionsort() {
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+}
