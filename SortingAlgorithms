@@ -34,30 +34,99 @@ public class SortingAlgorithms {
 	
 	
 	
+
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public static void mergesort() {
+	/**
+	 * Mergesort sorting algorithm which recursively splits the array into 
+	 * simpler arrays to be sorted
+	 * @param a integer array to be sorted
+	 * @param start beginning index of array a
+	 * @param end last index of array a
+	 */
+	static void mergesort(int [] a, int start, int end) {
 		
 		
+		int n = a.length;
+		//base case returns if length is 1
+		if(n < 2) return;
+			
+		//gets middle index
+		int midIndex = n  / 2;
 		
+		
+		//create copies of array a into two halves
+		int [] firstHalf = new int[midIndex];
+		int [] secondHalf = new int[n - midIndex];
+		
+		//copy over elements into the two array
+		for(int i = 0; i < midIndex; i++) {
+			firstHalf[i] = a[i];
+		}
+		int k = 0;
+		for(int j = midIndex; j < n; j++) {
+			
+			secondHalf[k++] = a[j];
+		}
+		
+		mergesort(firstHalf, 0, midIndex);
+		mergesort(secondHalf, midIndex, end);
+		
+		merge(firstHalf, secondHalf, a);
 		
 	}
+	
+	
+	
+	
+	/**
+	 * helper method that iterates through the two subarrays
+	 * it chooses the lesser of elements and place it into 
+	 * the original array
+	 * @param a
+	 * @param b
+	 * @param original
+	 */
+	private static void merge(int[] a, int [] b, int[] original) {
+		
+		
+		//i is index of first array
+		//j is index of second array
+		int i = 0, j = 0;
+		
+		//iterate through all elements and place in order back into original
+		while(i + j < original.length) {
+			
+			//while both arrays have elements left to check
+			if(j < b.length && i < a.length) {
+				
+				if(a[i] > b[j]) {
+					original[i + j] = b[j++];
+					
+				}
+				else {
+					original[i + j] = a[i++];
+					
+				}
+			}
+			//if first array has no elements left to check, copy over elements from second array
+			else if(j < b.length && i >= a.length) {
+				original[i + j] = b[j++];
+				
+				
+			}
+			//if second array has no elements left to check, copy over elements from first array
+			else if(j >= b.length && i < a.length){
+				original[i + j] = a[i++];
+				
+			}
+		}
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	public static void insertionsort() {
