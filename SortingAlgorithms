@@ -129,11 +129,41 @@ public class SortingAlgorithms {
 	
 	
 	
-	public static void insertionsort() {
+/**
+ * Insertion sort which splits the array into a sorted part and unsorted part.
+ * Grabbing the next unsorted number and placing it into the proper position in the sorted part
+ * shifts sorted part	
+ * @param a array
+ */
+	static void insertionsort(int[] a) {
+		
+		//already sorted
+		if(a.length < 2) return;
 		
 		
+		//starting from the second number
+		//loop through unsorted part of the array
+		for(int i = 1; i < a.length; i++) {
+			
+			//index for the end of the sorted part
+			int j = i - 1;
+			
+			//starting from the end of the sorted part
+			//compare the unsorted number at index i with j and swap if a[i] < a[j]
+			//decrement j and continue to compare and swap until a[i] is in the right 
+			//place in the sorted part
+			while(j >= 0) {
+				if(a[j + 1] < a[j]) {
+					int temp = a[j];
+					a[j] = a[j + 1];
+					a[j + 1] = temp;
+					
+				}
+				j--;
+			}
+			
 		
-		
+		}
 	}
 	
 	
