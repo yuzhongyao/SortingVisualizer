@@ -167,8 +167,41 @@ public class SortingAlgorithms {
 	}
 	
 	
-	public static void selectionsort() {
+	/**
+	 * Selection sort which loops through and grabs the smallest number 
+	 * and places it at the front. Then second smallest and place it after the smallest and so on
+	 * @param a array
+	 */
+	static void selectionsort(int []a) {
 		
+		//already sorted
+		if(a.length < 2){
+			return;
+		}
+		
+		for(int i = 0; i < a.length; i++) {
+			//i is the index of where the smallest should be from the array that has not been selected already
+			int smallest = a[i];
+			int index = i;
+			
+			//loop through the array thats past i
+			for(int j = i + 1; j < a.length; j++) {
+				
+				//compare and find the smallest and keep track of its index
+				if(a[j] < smallest) {
+					
+					
+					smallest = a[j];
+					index = j;
+				}
+				
+			}
+			
+			//swap the smallest with i
+			int t = a[i];
+			a[i] = a[index];
+			a[index] = t;
+		}
 		
 		
 		
